@@ -95,7 +95,7 @@ open class WhistleFactory: UIViewController {
         NSString(string: text).boundingRect(
           with: CGSize(width: labelWidth, height: CGFloat.infinity),
           options: NSStringDrawingOptions.usesLineFragmentOrigin,
-          attributes: [NSFontAttributeName: titleLabel.font],
+          attributes: [NSAttributedStringKey.font: titleLabel.font],
           context: nil
         )
       titleLabelHeight = CGFloat(neededDimensions.size.height)
@@ -152,11 +152,11 @@ open class WhistleFactory: UIViewController {
 
   // MARK: - Timer methods
 
-  open func timerDidFire() {
+    @objc open func timerDidFire() {
     hide()
   }
 
-  func orientationDidChange() {
+    @objc func orientationDidChange() {
     if whistleWindow.isKeyWindow {
       setupFrames()
       hide()
